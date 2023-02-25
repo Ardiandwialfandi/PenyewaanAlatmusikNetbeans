@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="84"/>
+	<parameter name="No_TransPengembalian" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+tb_pengembalianalat.No_TransPengembalian,
+tb_pengembalianalat.No_TransPeminjaman,
+tb_pengembalianalat.tanggalPeminjaman,
+tb_pengembalianalat.tanggalPengembalian,
+tb_pengembalianalat.tanggalMengembalikan,
+tb_pengembalianalat.id_pelanggan,
+tb_pengembalianalat.Nama_karyawan,
+tb_pengembalianalat.Nama_Pelanggan,
+tb_pengembalianalat.HargaUnit, 
+tb_pengembalianalat.keterlambatan, 
+tb_pengembalianalat.denda_terlambat, 
+tb_pengembalianalat.kondisi, 
+tb_pengembalianalat.denda_kerusakan, 
+tb_pengembalianalat.DP, 
+tb_pengembalianalat.Jumlah,
+tb_pengembalianalat.jmlah_total, 
+tb_pengembalianalat.bayar,
+tb_pengembalianalat.kembalian,
+det_pengembalian.alamat, 
+det_pengembalian.No_Hp, 
+det_pengembalian.No_type,
+det_pengembalian.Jenis_alat,
+det_pengembalian.Warna,
+det_pengembalian.KondisiAwal,
+det_pengembalian.Antar,
+det_pengembalian.jmlh_hari,
+det_pengembalian.total
+FROM tb_pengembalianalat JOIN det_pengembalian ON det_pengembalian.No_TransPengembalian=tb_pengembalianalat.No_TransPengembalian 
+WHERE tb_pengembalianalat.No_TransPengembalian = $P{No_TransPengembalian}]]>
+	</queryString>
+	<field name="No_TransPengembalian" class="java.lang.String"/>
+	<field name="No_TransPeminjaman" class="java.lang.String"/>
+	<field name="tanggalPeminjaman" class="java.lang.String"/>
+	<field name="tanggalPengembalian" class="java.sql.Date"/>
+	<field name="tanggalMengembalikan" class="java.sql.Date"/>
+	<field name="id_pelanggan" class="java.lang.String"/>
+	<field name="Nama_karyawan" class="java.lang.String"/>
+	<field name="Nama_Pelanggan" class="java.lang.String"/>
+	<field name="HargaUnit" class="java.lang.Integer"/>
+	<field name="keterlambatan" class="java.lang.String"/>
+	<field name="denda_terlambat" class="java.lang.Integer"/>
+	<field name="kondisi" class="java.lang.String"/>
+	<field name="denda_kerusakan" class="java.lang.Integer"/>
+	<field name="DP" class="java.lang.Integer"/>
+	<field name="Jumlah" class="java.lang.Integer"/>
+	<field name="jmlah_total" class="java.lang.Integer"/>
+	<field name="bayar" class="java.lang.Integer"/>
+	<field name="kembalian" class="java.lang.Integer"/>
+	<field name="alamat" class="java.lang.String"/>
+	<field name="No_Hp" class="java.lang.String"/>
+	<field name="No_type" class="java.lang.String"/>
+	<field name="Jenis_alat" class="java.lang.String"/>
+	<field name="Warna" class="java.lang.String"/>
+	<field name="KondisiAwal" class="java.lang.String"/>
+	<field name="Antar" class="java.lang.Integer"/>
+	<field name="jmlh_hari" class="java.lang.String"/>
+	<field name="total" class="java.lang.Integer"/>
+	<variable name="denda_terlambat_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{denda_terlambat}]]></variableExpression>
+	</variable>
+	<variable name="denda_kerusakan_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{denda_kerusakan}]]></variableExpression>
+	</variable>
+	<variable name="kembali_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="denda_terlambat_2" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{denda_terlambat}]]></variableExpression>
+	</variable>
+	<variable name="denda_kerusakan_2" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{denda_kerusakan}]]></variableExpression>
+	</variable>
+	<variable name="jmlh_total_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="jmlh_total_2" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="jmlah_total_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{jmlah_total}]]></variableExpression>
+	</variable>
+	<variable name="denda_terlambat_3" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{denda_terlambat}]]></variableExpression>
+	</variable>
+	<variable name="denda_kerusakan_3" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{denda_kerusakan}]]></variableExpression>
+	</variable>
+	<variable name="total_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="11" width="299" height="38" backcolor="#000000"/>
+				<textElement>
+					<font fontName="SansSerif" size="24"/>
+				</textElement>
+				<text><![CDATA[STRUK PENGEMBALIAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="117" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.5" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="13" y="54" width="328" height="1"/>
+			</line>
+			<image>
+				<reportElement x="392" y="11" width="147" height="97"/>
+				<imageExpression class="java.lang.String"><![CDATA["D:\\Universitas Indraprasta\\SEMESTER 8\\SKRIPSI\\ProgramMusik\\src\\image\\logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="244" y="55" width="216" height="30" backcolor="#000000"/>
+				<textElement>
+					<font fontName="SansSerif" size="18"/>
+				</textElement>
+				<text><![CDATA[Ardiens Music]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="85" width="216" height="23" backcolor="#000000"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Studio Musik Bogor-Cibinong]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="352" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="124" width="144" height="20"/>
+				<textElement/>
+				<text><![CDATA[No.Transaksi Pengembalian   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="127" y="7" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Nama_Pelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="28" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{id_pelanggan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="8" width="123" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nama Pelanggan             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="29" width="123" height="20"/>
+				<textElement/>
+				<text><![CDATA[ID. Pelanggan                 :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="123" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tanggal Peminjaman     :             :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="117" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="7" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.5" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="4" y="168" width="144" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nama Karyawan                     :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="154" y="191" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Jenis_alat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="213" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="235" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Warna}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="190" width="144" height="20"/>
+				<textElement/>
+				<text><![CDATA[Jenis Alat/Sewa                      :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="212" width="144" height="20"/>
+				<textElement/>
+				<text><![CDATA[No.Type Alat                          :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="234" width="144" height="20"/>
+				<textElement/>
+				<text><![CDATA[Warna Alat                             :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-1" y="347" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="-1" y="327" width="413" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[HARAP STRUK INI DISIMPAN SEBAGAI TANDA  BUKTI PEMBAYARAN YANG SAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="281" width="118" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total                            :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="294" y="255" width="201" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="279" y="247" width="15" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="157" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[Harga Per Unit           :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="179" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{Antar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="179" width="115" height="20"/>
+				<textElement/>
+				<text><![CDATA[Jasa Delivery             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="118" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[- - Transaksi - -]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="31" width="179" height="33"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="31" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Alamat                    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{KondisiAwal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="255" y="10" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kondisi Awal Alat :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="127" y="71" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{tanggalPengembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="93" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{tanggalMengembalikan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="71" width="123" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tanggal Pengembalian   :             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="92" width="123" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tanggal Mengembalikan :             :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="146" width="144" height="20"/>
+				<textElement/>
+				<text><![CDATA[No.Transaksi Peminjaman      :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="201" width="20" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{jmlh_hari}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="201" width="114" height="20"/>
+				<textElement/>
+				<text><![CDATA[Lama Sewa               :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="201" width="51" height="20"/>
+				<textElement/>
+				<text><![CDATA[Hari.    x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="222" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{Jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="222" width="114" height="20"/>
+				<textElement/>
+				<text><![CDATA[Jumlah Unit               :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="65" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_Hp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="254" y="65" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[No HandPhone      :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="281" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="49" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{tanggalPeminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="168" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Nama_karyawan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="124" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_TransPengembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="146" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_TransPeminjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="157" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{HargaUnit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="201" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{HargaUnit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="309" splitType="Stretch">
+			<textField>
+				<reportElement x="412" y="88" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{DP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="120" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{jmlah_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="143" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{bayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="166" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{kembalian}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="293" y="113" width="219" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="293" y="88" width="118" height="20"/>
+				<textElement/>
+				<text><![CDATA[Bayar Dp/Uang Muka   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="120" width="118" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total                            :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="143" width="118" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tunai                           :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="166" width="118" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kembalian                   :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="273" width="120" height="20"/>
+				<textElement/>
+				<text><![CDATA[- - - TERIMA KASIH - - -]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-1" y="229" width="555" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="293" y="198" width="219" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="304" width="554" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="276" y="113" width="9" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="4" y="4" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Keterlambatan       :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{kondisi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="27" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kondisi Alat           :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="4" width="60" height="20"/>
+				<textElement/>
+				<text><![CDATA[Hari.     x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="104" y="4" width="19" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{keterlambatan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{denda_terlambat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="28" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{denda_kerusakan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="293" y="4" width="117" height="20"/>
+				<textElement/>
+				<text><![CDATA[Denda Terlambat        :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="28" width="117" height="20"/>
+				<textElement/>
+				<text><![CDATA[Denda Rusak                :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="48" width="15" height="15"/>
+				<textElement textAlignment="Center">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="303" y="56" width="201" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="254" y="47" width="33" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total   ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="412" y="63" width="127" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{total_1}+$V{denda_terlambat_3}+$V{denda_kerusakan_3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="4" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{HargaUnit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="3" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="27" splitType="Stretch"/>
+	</summary>
+</jasperReport>
