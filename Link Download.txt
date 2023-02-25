@@ -1,0 +1,3 @@
+https://www.apachefriends.org/download.html (XamPP)
+https://netbeans.apache.org/download/nb13/nb13.html (Netbeans 13)
+https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html (jdk 17 windows 64 bin)
