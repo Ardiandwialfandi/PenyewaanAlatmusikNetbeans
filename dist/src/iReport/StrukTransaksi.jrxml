@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<parameter name="No_TransPeminjaman" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT tb_peminjaman.No_TransPeminjaman,
+tb_peminjaman.tanggalPeminjaman,
+tb_peminjaman.tanggalPengembalian,
+tb_peminjaman.id_pelanggan,
+tb_peminjaman.No_type,
+tb_peminjaman.NIK,
+tb_peminjaman.Nama_karyawan,
+tb_peminjaman.Nama_pelanggan,
+tb_peminjaman.Jenis_alat,
+tb_peminjaman.Warna,
+tb_peminjaman.HargaUnit,
+tb_peminjaman.Jumlah,
+tb_peminjaman.jmlh_hari,
+tb_peminjaman.Antar,
+tb_peminjaman.jmlh_total,
+tb_peminjaman.bayar_Dp,
+tb_peminjaman.sisa_bayar,
+det_peminjaman.alamat,
+det_peminjaman.No_Hp,
+tb_alatmusik.KondisiAwal
+FROM tb_peminjaman JOIN det_peminjaman ON det_peminjaman.No_TransPeminjaman = tb_peminjaman.No_TransPeminjaman JOIN tb_alatmusik ON tb_alatmusik.No_type = tb_peminjaman.No_type
+where tb_peminjaman.No_TransPeminjaman = $P{No_TransPeminjaman}]]>
+	</queryString>
+	<field name="No_TransPeminjaman" class="java.lang.String"/>
+	<field name="tanggalPeminjaman" class="java.sql.Date"/>
+	<field name="tanggalPengembalian" class="java.sql.Date"/>
+	<field name="id_pelanggan" class="java.lang.String"/>
+	<field name="No_type" class="java.lang.String"/>
+	<field name="NIK" class="java.lang.String"/>
+	<field name="Nama_karyawan" class="java.lang.String"/>
+	<field name="Nama_pelanggan" class="java.lang.String"/>
+	<field name="Jenis_alat" class="java.lang.String"/>
+	<field name="Warna" class="java.lang.String"/>
+	<field name="HargaUnit" class="java.lang.String"/>
+	<field name="Jumlah" class="java.lang.Integer"/>
+	<field name="jmlh_hari" class="java.lang.String"/>
+	<field name="Antar" class="java.lang.Integer"/>
+	<field name="jmlh_total" class="java.lang.Integer"/>
+	<field name="bayar_Dp" class="java.lang.Integer"/>
+	<field name="sisa_bayar" class="java.lang.Integer"/>
+	<field name="alamat" class="java.lang.String"/>
+	<field name="No_Hp" class="java.lang.String"/>
+	<field name="KondisiAwal" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="19" width="231" height="38" backcolor="#000000"/>
+				<textElement>
+					<font fontName="SansSerif" size="24"/>
+				</textElement>
+				<text><![CDATA[STRUK SEWA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="116" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="398" y="7" width="147" height="97"/>
+				<imageExpression class="java.lang.String"><![CDATA["D:\\Universitas Indraprasta\\SEMESTER 8\\SKRIPSI\\ProgramMusik\\src\\image\\logo.jpg"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="23" y="56" width="328" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="275" y="64" width="216" height="30" backcolor="#000000"/>
+				<textElement>
+					<font fontName="SansSerif" size="18"/>
+				</textElement>
+				<text><![CDATA[Ardiens Music]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="87" width="216" height="23" backcolor="#000000"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[Studio Musik Bogor-Cibinong]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Nama Pelanggan :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="7" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Nama_pelanggan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="33" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[ID Pelanggan   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="33" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{id_pelanggan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="63" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Tanggal Sewa  ;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="97" y="63" width="121" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{tanggalPeminjaman}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="94" width="123" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[No.TransaksiPeminjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="94" width="76" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Nomor Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="94" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[NIK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="94" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Nama Karyawan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="94" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Jenis Alat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="94" width="78" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Warna]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="87" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="118" width="555" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="404" y="63" width="130" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{tanggalPengembalian}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="273" y="63" width="123" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Tanggal Pengembalian  ;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="33" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_Hp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="274" y="33" width="122" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[No Hp Pelanggan           :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="404" y="7" width="147" height="26"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="273" y="7" width="122" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Alamat Pelanggan          :]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="433" splitType="Stretch">
+			<textField>
+				<reportElement x="123" y="3" width="76" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="3" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NIK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="3" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Nama_karyawan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="3" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Jenis_alat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="3" width="78" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Warna}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="155" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{jmlh_hari}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="155" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Jumlah Hari       :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="434" y="187" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{jmlh_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="187" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Total                  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="434" y="220" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{bayar_Dp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="220" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Bayar DP            :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="434" y="253" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{sisa_bayar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="253" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Sisa Bayar          :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="27" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="273" y="246" width="261" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="187" y="389" width="164" height="26"/>
+				<textElement>
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<text><![CDATA[---- Terima Kasih -----]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="384" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="420" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="434" y="100" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{HargaUnit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="100" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Harga Per Unit   :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="273" y="181" width="261" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="256" y="172" width="18" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="232" width="18" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[_]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="338" width="182" height="20" forecolor="#666666"/>
+				<textElement>
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<text><![CDATA[Simpan Struk Untuk Pengembalian!]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="434" y="127" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{Antar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="127" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Harga Delivery   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="48" width="147" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{KondisiAwal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="48" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Kondisi Awal Alat       :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="123" y="80" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{Jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="80" width="113" height="20"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<text><![CDATA[Jumlah Pesan Barang :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="123" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{No_TransPeminjaman}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
